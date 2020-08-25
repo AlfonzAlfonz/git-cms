@@ -1,0 +1,43 @@
+{
+  "name": "git-cms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Denis Homolík <alfonz@homolik.cz>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint \"./**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "@types/styled-system": "^5.1.10",
+    "@xcorejs/ui": "^0.7.3",
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "shelljs": "^0.8.4",
+    "styled-components": "^5.1.1",
+    "swr": "^0.3.1",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "@types/react": "^16.9.46",
+    "@types/shelljs": "^0.8.8",
+    "@types/styled-components": "^5.1.2",
+    "@types/yup": "^0.29.6",
+    "@typescript-eslint/eslint-plugin": "^3.10.0",
+    "@typescript-eslint/parser": "^3.10.0",
+    "eslint": "^7.7.0",
+    "eslint-config-alfonz": "^0.2.2",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "typescript": "^4.0.2"
+  }
+}
