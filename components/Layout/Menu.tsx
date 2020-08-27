@@ -1,16 +1,25 @@
 import { Flex, List, ListItem, Spinner, Typography, Link } from "@xcorejs/ui";
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import useSWR from "swr";
 import { fetcher } from "utils/fetcher";
-import { ContentEntry } from "../../pages/api/[repo]/contents";
+import { Directory } from "../../pages/api/[repo]/contents";
+import NextLink from "next/link";
 
 const Menu: FC = () => {
-  const { data, error } = useSWR<ContentEntry[]>("/api/test/contents", fetcher);
+  const { data } = useSWR<Directory>("/api/test/contents", fetcher);
 
-  return data ? (
+  const contents = useMemo(() => data && dirToList(data), [data]);
+
+  return contents ? (
     <Typography as="div">
       <List _bullet={{ content: "" }}>
-        {data.map(([name, type]) => <ListItem key={name}><Link href={`/page/${name}`}><a>{name} ({type})</a></Link></ListItem>)}
+        {contents.map(name => (
+          <ListItem key={name}>
+            <NextLink href="/page/[...path]" as={`/page/${name}`} passHref>
+              <Link>{name}</Link>
+            </NextLink>
+          </ListItem>
+        ))}
       </List>
     </Typography>
   ) : (
@@ -21,3 +30,6 @@ const Menu: FC = () => {
 };
 
 export default Menu;
+
+const dirToList = (d: Directory): string[] =>
+  Object.entries(d).map(([k, val]) => typeof val === "string" ? val : dirToList(val)).flat();

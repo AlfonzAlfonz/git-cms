@@ -1,4 +1,4 @@
-import NextDocument, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
+import NextDocument, { Html, Main, NextScript, DocumentContext, Head } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import React from "react";
 
@@ -30,10 +30,6 @@ class Document extends NextDocument {
       <Html lang="en" dir="ltr">
         <Head>
           <meta charSet="utf-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"
-          />
           <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap&subset=latin-ext" rel="stylesheet" />
 
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

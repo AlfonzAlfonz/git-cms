@@ -1,19 +1,21 @@
+import { Box, Container, Flex, Heading1, Typography } from "@xcorejs/ui";
 import React, { FC } from "react";
-import { Box, Heading1, Container, Typography, Heading2, Flex, Button } from "@xcorejs/ui";
+
 import Menu from "./Menu";
+import CommitButton from "./CommitButton";
 
 const Layout: FC = ({ children }) => {
   return (
     <Box>
       <Flex borderBottom="1px solid lightgrey" alignItems="center" px="2rem">
         <Heading1 width="100%">Git CMS</Heading1>
-        <Button>Commit&nbsp;&amp;&nbsp;Save</Button>
+        <CommitButton />
       </Flex>
       <Container mt="1rem">
         <Box minWidth={[null, null, "200px"]}>
           <Menu />
         </Box>
-        <Typography as="div">{children}</Typography>
+        <Typography as="div" width="100%">{children}</Typography>
       </Container>
 
     </Box>
