@@ -13,11 +13,10 @@ const pathRegex = /^[^\/\\\.~]*$/;
 
 export type Repo = {
   dir: string;
-  from: string;
 };
 
-export const selectRepo = (dir: string, from: string): Repo | null =>
-  pathRegex.test(dir) ? { dir: path.join(process.cwd(), "repos", dir), from } : null;
+export const selectRepo = (dir: string): Repo | null =>
+  pathRegex.test(dir) ? { dir: path.join(process.cwd(), "repos", dir) } : null;
 
 export const commitAll = (repo: Repo, msg: string) =>
   exec("git add .", { cwd: repo.dir })

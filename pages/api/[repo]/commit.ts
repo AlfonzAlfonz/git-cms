@@ -21,9 +21,7 @@ export default post(schema, async (req: NextApiRequest, res: NextApiResponse) =>
   const body: CommitRequest = req.body;
 
   try {
-    const repo = selectRepo(req.query.repo as string, body.from);
-
-    console.log(body.files);
+    const repo = selectRepo(req.query.repo as string);
 
     if (repo) {
       await writeFiles(repo, body.files);

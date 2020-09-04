@@ -4,6 +4,7 @@ import { useLocalStorage } from "utils/useLocalStorage";
 
 import TextEditor from "./TextEditor";
 import { DocumentEditor } from "./DocumentEditor";
+import FormEditor from "./FormEditor";
 
 export type EditorProps = {
   value: string;
@@ -13,10 +14,12 @@ export type EditorProps = {
 
 const DynamicForm: FC<{file: string; filename: string; config: EditorConfig}> = ({ filename, file, config }) => {
   const [value, setValue] = useLocalStorage("file://" + filename, file);
+  const props = { value, setValue, config };
 
   switch (config.type) {
-    case "text": return <TextEditor value={value} setValue={setValue} config={config} />;
-    case "document": return <DocumentEditor value={value} setValue={setValue} config={config} />;
+    case "text": return <TextEditor {...props} />;
+    case "document": return <DocumentEditor {...props} />;
+    case "form": return <FormEditor {...props} />;
     default: return <>Invalid editor</>;
   }
 };

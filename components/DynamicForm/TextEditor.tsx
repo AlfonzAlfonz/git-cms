@@ -4,7 +4,8 @@ import { Box, BoxProps } from "@xcorejs/ui";
 
 export const TextEditorStyle: BoxProps = {
   width: "100%",
-  minHeight: "400px",
+  minHeight: "200px",
+  height: "400px",
   border: "1px solid lightgrey",
   p: "1rem",
   fontFamily: "rubik"

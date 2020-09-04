@@ -11,9 +11,9 @@ export type Directory = {
 };
 
 export default get(async (req: NextApiRequest, res: NextApiResponse) => {
-  const repo = selectRepo(req.query.repo as string, "");
+  const repo = selectRepo(req.query.repo as string);
   repo
-    ? scanDir(path.join(process.cwd(), "repos", repo.dir, "content"))
+    ? scanDir(path.join(repo.dir, "content"))
       .then(res.json)
     : res.status(400).end();
 });

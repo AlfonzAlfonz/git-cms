@@ -20,3 +20,6 @@ export const loadConfig = async (p: string): Promise<DotConfig> => {
 };
 
 const dotconfig = (dir: string) => path.join(dir, ".config.json");
+
+export const fileConfig = (config: DotConfig, filename: string) =>
+  config[`[${path.parse(filename).ext.slice(1)}]`] ?? { type: "text" };
